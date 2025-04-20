@@ -1,0 +1,10 @@
+.loginContainer {
+    min-height: 86vh;
+    background-color: #e0ffff9a;
+}
+.clickBtn {
+    cursor: pointer;
+}
+.inputBox {
+    background-image: linear-gradient(to bottom,#000000ea,#8080807a);
+}

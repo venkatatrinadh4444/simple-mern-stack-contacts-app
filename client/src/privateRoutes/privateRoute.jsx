@@ -7,7 +7,7 @@ const PrivateRoute=({children})=> {
 
     const token=localStorage.getItem('token')
     const tokenVerification=()=> {
-        axios.get(`http://localhost:8000/verification/verifytoken`,{headers:{Authorization:`Bearer ${token}`}}).then(res=>setVerified({isLoading:false,isError:false})).catch(err=>setVerified({isLoading:false,isError:true}))
+        axios.get(`https://simple-mern-stack-contacts-app.onrender.com/verification/verifytoken`,{headers:{Authorization:`Bearer ${token}`}}).then(res=>setVerified({isLoading:false,isError:false})).catch(err=>setVerified({isLoading:false,isError:true}))
     }
     useEffect(()=> {
         tokenVerification()

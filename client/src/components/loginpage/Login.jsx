@@ -24,7 +24,7 @@ function FormFloatingBasicExample() {
   }
 
   const registerFuntion=()=> {
-    axios.post('http://localhost:8000/auth/register-user',userData).then((res)=>toast.info(res.data.msg+"!")).catch(err=>console.log(err))
+    axios.post('https://simple-mern-stack-contacts-app.onrender.com/auth/register-user',userData).then((res)=>toast.info(res.data.msg+"!")).catch(err=>console.log(err))
     setUserData({username:'',
       email:'',
       password:'',
@@ -33,7 +33,7 @@ function FormFloatingBasicExample() {
   
   const loginFuntion=()=> {
     const {email,password}=userData
-    axios.post('http://localhost:8000/auth/login-user',{email,password}).then(res=>{
+    axios.post('https://simple-mern-stack-contacts-app.onrender.com/auth/login-user',{email,password}).then(res=>{
       localStorage.setItem('token',res.data.token)
       localStorage.setItem('id',res.data.id)
       toast.success(res.data.msg+"!")

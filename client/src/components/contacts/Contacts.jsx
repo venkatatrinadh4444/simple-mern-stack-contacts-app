@@ -34,7 +34,7 @@ const Contacts = () => {
 
   useEffect(()=> {
     const id=localStorage.getItem('id')
-    axios.get(`http://localhost:8000/user/${id}/contacts/get-contacts`).then(res=>setContactsData(res.data)).catch(err=>console.log(err))
+    axios.get(`https://simple-mern-stack-contacts-app.onrender.com/user/${id}/contacts/get-contacts`).then(res=>setContactsData(res.data)).catch(err=>console.log(err))
   },[])
 
   const changeHandler=e=> {
@@ -51,7 +51,7 @@ const Contacts = () => {
     data.append('image',image)
     data.append('name',name)
     data.append('phone',phone)
-    axios.post(`http://localhost:8000/user/${id}/contacts/add-contact`,data,{headers:{'Content-Type':'multipart/form-data'}}).then(res=>{
+    axios.post(`https://simple-mern-stack-contacts-app.onrender.com/user/${id}/contacts/add-contact`,data,{headers:{'Content-Type':'multipart/form-data'}}).then(res=>{
       setContactsData(res.data.updatedContacts)
       toast.success(res.data.msg+"!")
     }).catch(err=>toast.error(res.data.msg))
@@ -78,7 +78,7 @@ const Contacts = () => {
     data.append('image',image)
     data.append('name',name)
     data.append('phone',phone)
-    axios.put(`http://localhost:8000/user/${id}/contacts/update-contact/${contactId}`,data,{headers:{'Content-Type':'multipart/form-data'}}).then(res=>{
+    axios.put(`https://simple-mern-stack-contacts-app.onrender.com/user/${id}/contacts/update-contact/${contactId}`,data,{headers:{'Content-Type':'multipart/form-data'}}).then(res=>{
       setContactsData(res.data.updatedContacts)
       toast.success(res.data.msg+"!")
     }).catch(err=>toast.error(res.data.msg))
@@ -91,7 +91,7 @@ const Contacts = () => {
 
   const delteHandler=(contactId)=> {
     const id=localStorage.getItem('id')
-    axios.delete(`http://localhost:8000/user/${id}/contacts/delete-contact/${contactId}`).then(res=>{
+    axios.delete(`https://simple-mern-stack-contacts-app.onrender.com/user/${id}/contacts/delete-contact/${contactId}`).then(res=>{
       setContactsData(res.data.updatedContacts)
       toast.success(res.data.msg+"!")
     }).catch(err=>console.log(err))
@@ -142,7 +142,7 @@ const Contacts = () => {
         contactsData.map(eachContact=>{
           const id=localStorage.getItem('id')
           return <Card style={{ width: "12rem" }} className="shadow eachCard" key={eachContact._id}>
-          <Card.Img variant="top" src={`http://localhost:8000/user/${id}/images/${eachContact._id}?t=${new Date().getTime()}`} className="cardImage"/>
+          <Card.Img variant="top" src={`https://simple-mern-stack-contacts-app.onrender.com/user/${id}/images/${eachContact._id}?t=${new Date().getTime()}`} className="cardImage"/>
           <Card.Body className="px-2 pb-3 pt-1">
             <Card.Title className="title">Name: <br/>
             {eachContact.name}

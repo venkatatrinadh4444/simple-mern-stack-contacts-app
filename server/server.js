@@ -10,7 +10,7 @@ const PORT=process.env.PORT || 5000
 
 
 const app=express()
-app.use(cors({origin:"*"}))
+app.use(cors({origin:"https://simple-mern-stack-contacts-app.vercel.app"}))
 app.use(express.json())
 app.use('/auth',authRoutes)
 app.use('/verification',privateRoutes)
